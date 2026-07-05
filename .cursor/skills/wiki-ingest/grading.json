@@ -1,0 +1,192 @@
+{
+  "skill_name": "wiki-ingest",
+  "skill_path": "d:/Projects/skill-colllection/skills/wiki-ingest",
+  "graded_at": "2026-07-05T03:35:00Z",
+  "total_score": 94,
+  "grade": "A",
+  "previous_score": 75,
+  "previous_grade": "B",
+  "categories": {
+    "structure": { "score": 20, "weight": 0.20, "passed": 6, "failed": 0, "total": 6, "na": 0 },
+    "content": { "score": 35, "weight": 0.35, "passed": 8, "failed": 0, "total": 8, "na": 0 },
+    "engineering": { "score": 20, "weight": 0.20, "passed": 4, "failed": 0, "total": 4, "na": 1 },
+    "security": { "score": 15, "weight": 0.15, "passed": 3, "failed": 0, "total": 3, "na": 2 },
+    "anti_patterns": { "score": 4, "weight": 0.10, "passed": 5, "failed": 1, "total": 6, "na": 0 }
+  },
+  "dimensions": [
+    {
+      "id": "S1", "dimension": "YAML 元数据完整", "category": "structure", "passed": true,
+      "evidence": "Frontmatter L1-7: name, description, metadata.version: \"2.0\"",
+      "suggestion": null
+    },
+    {
+      "id": "S2", "dimension": "Description 精准", "category": "structure", "passed": true,
+      "evidence": "Description includes concrete triggers: 'ingest', 'digest', 'add to wiki', 'process this article', scope raw/ → wiki/",
+      "suggestion": null
+    },
+    {
+      "id": "S3", "dimension": "篇幅合理", "category": "structure", "passed": true,
+      "evidence": "257 lines total (including frontmatter), under 500-line threshold",
+      "suggestion": null
+    },
+    {
+      "id": "S4", "dimension": "模块化拆分", "category": "structure", "passed": true,
+      "evidence": "257 lines with progressive disclosure: SKILL.md (workflow) → references/templates.md (page templates)",
+      "suggestion": null
+    },
+    {
+      "id": "S5", "dimension": "目录结构规范", "category": "structure", "passed": true,
+      "evidence": "SKILL.md + references/templates.md present",
+      "suggestion": "Optional: add evals/ for ingest regression tests"
+    },
+    {
+      "id": "S6", "dimension": "可视化表达", "category": "structure", "passed": true,
+      "evidence": "Overview ASCII (L39-47), classification decision tree (L51-73), 何时不用 table (L16-23), 前置条件 table (L29-34), Types table (L228-235), verification checklist table (L237-248)",
+      "suggestion": null
+    },
+    {
+      "id": "C1", "dimension": "目标明确", "category": "content", "passed": true,
+      "evidence": "L11-13: 做什么/何时触发; L15-23: 何时不用 — WHAT/WHY/WHEN all explicit",
+      "suggestion": null
+    },
+    {
+      "id": "C2", "dimension": "语气直接", "category": "content", "passed": true,
+      "evidence": "Imperative throughout: 'Read', 'Create or Update', 'Ensure', 'Append', 'Run'. No hedging language",
+      "suggestion": null
+    },
+    {
+      "id": "C3", "dimension": "说明了为什么", "category": "content", "passed": true,
+      "evidence": "L190-191 explains 80k token rationale (~60% of 128k window); L207 explains 30-day default; L36 warns about legacy fields; conflict section explains why silent overwrite forbidden",
+      "suggestion": null
+    },
+    {
+      "id": "C4", "dimension": "例子充分", "category": "content", "passed": true,
+      "evidence": "references/templates.md has 5 templates (source, entity, concept, log, conflict table); decision table with concrete examples (Cursor, RAG)",
+      "suggestion": null
+    },
+    {
+      "id": "C5", "dimension": "场景覆盖全面", "category": "content", "passed": true,
+      "evidence": "Decision tree covers create vs update, entity vs concept vs relation, synthesis update, conflict handling; 何时不用 table covers skip scenarios",
+      "suggestion": null
+    },
+    {
+      "id": "C6", "dimension": "易错点标注", "category": "content", "passed": true,
+      "evidence": "L36: legacy source_count/status warning; L163: silent overwrite forbidden; L223: no chat style",
+      "suggestion": null
+    },
+    {
+      "id": "C7", "dimension": "可验证", "category": "content", "passed": true,
+      "evidence": "Per-step **Checkpoint** sections (Steps 1-7); final 入库完成验证清单 table (L237-248) with runnable grep/test commands; Step 8 script commands",
+      "suggestion": null
+    },
+    {
+      "id": "C8", "dimension": "前置条件明确", "category": "content", "passed": true,
+      "evidence": "L25-36 前置条件 table with verification commands; L15-23 何时不用 table defines when NOT to use",
+      "suggestion": null
+    },
+    {
+      "id": "E1", "dimension": "版本控制", "category": "engineering", "passed": true,
+      "evidence": "metadata.version: \"2.0\" in frontmatter L6-7",
+      "suggestion": null
+    },
+    {
+      "id": "E2", "dimension": "可独立使用", "category": "engineering", "passed": true,
+      "evidence": "N/A — single workflow skill; references/templates.md is supplementary, not a sub-skill",
+      "suggestion": null
+    },
+    {
+      "id": "E3", "dimension": "依赖声明", "category": "engineering", "passed": true,
+      "evidence": "L29-34 lists required directories and 4 Python scripts with test commands",
+      "suggestion": "Document expected script I/O contract in references/ when scripts are implemented"
+    },
+    {
+      "id": "E4", "dimension": "脚本化", "category": "engineering", "passed": true,
+      "evidence": "Index rebuild, health check, token report, stale detection delegated to project scripts/ — no 20+ line inline bash",
+      "suggestion": null
+    },
+    {
+      "id": "E5", "dimension": "References 使用", "category": "engineering", "passed": true,
+      "evidence": "Page templates moved to references/templates.md; SKILL.md stays actionable workflow (~35% template content vs ~40% before)",
+      "suggestion": null
+    },
+    {
+      "id": "A1", "dimension": "无硬编码密钥", "category": "security", "passed": true,
+      "evidence": "Grep for password/api_key/secret/credential: zero credential matches; 'token' only appears in wiki_size_report context",
+      "suggestion": null
+    },
+    {
+      "id": "A2", "dimension": "危险操作有确认", "category": "security", "passed": true,
+      "evidence": "No rm/DROP/DELETE operations; file writes gated by explicit templates",
+      "suggestion": null
+    },
+    {
+      "id": "A3", "dimension": "输入有校验", "category": "security", "passed": true,
+      "evidence": "N/A — no scripts with user input in skill directory",
+      "suggestion": null
+    },
+    {
+      "id": "A4", "dimension": "路径安全", "category": "security", "passed": true,
+      "evidence": "N/A — no file path manipulation scripts in skill directory",
+      "suggestion": null
+    },
+    {
+      "id": "A5", "dimension": "HTTPS + 超时", "category": "security", "passed": true,
+      "evidence": "N/A — no network calls",
+      "suggestion": null
+    },
+    {
+      "id": "AP1", "dimension": "大杂烩 Skill", "category": "anti_patterns", "passed": true,
+      "evidence": "Single pipeline: raw/ → wiki/. Stale detection is maintenance extension of same workflow",
+      "suggestion": null
+    },
+    {
+      "id": "AP2", "dimension": "Description 黑话", "category": "anti_patterns", "passed": true,
+      "evidence": "Plain trigger phrases; AGENTS.md reference is contextual not jargon",
+      "suggestion": null
+    },
+    {
+      "id": "AP3", "dimension": "没有示例", "category": "anti_patterns", "passed": true,
+      "evidence": "5 templates in references/ + classification examples table",
+      "suggestion": null
+    },
+    {
+      "id": "AP4", "dimension": "没有验证点", "category": "anti_patterns", "passed": true,
+      "evidence": "Checkpoint after each Step 1-7; final 8-item verification checklist",
+      "suggestion": null
+    },
+    {
+      "id": "AP5", "dimension": "写死数值", "category": "anti_patterns", "passed": true,
+      "evidence": "80k tokens explained as ~60% of 128k context; 30 days explained as freshness/noise balance with --days override",
+      "suggestion": null
+    },
+    {
+      "id": "AP6", "dimension": "当 Wiki 写", "category": "anti_patterns", "passed": false,
+      "evidence": "Templates moved to references/ but SKILL.md still ~257 lines with substantial procedural detail. Acceptable for workflow skill but references/ could also hold script contract docs",
+      "suggestion": "If skill grows past 350 lines, extract Stale Detection and Page Writing Rules to references/"
+    }
+  ],
+  "critical_issues": [],
+  "fix_priorities": [
+    {
+      "priority": "low", "dimension": "AP6", "issue": "SKILL.md still dense at 257 lines",
+      "fix": "Monitor line count; extract secondary sections to references/ if exceeding 350 lines"
+    },
+    {
+      "priority": "low", "dimension": "S5", "issue": "No evals/ directory",
+      "fix": "Add evals/ with sample ingest scenarios for regression testing"
+    },
+    {
+      "priority": "low", "dimension": "E3", "issue": "Maintenance scripts live in project root, not skill directory",
+      "fix": "Document script I/O contract in references/scripts.md when scripts are implemented"
+    }
+  ],
+  "optimizations_applied": [
+    "Added metadata.version 2.0",
+    "Added 前置条件 + 何时不用 sections with verification commands",
+    "Added classification decision tree (S6 fix)",
+    "Added per-step Checkpoints and final 入库完成验证清单 (C7, AP4 fix)",
+    "Moved page templates to references/templates.md (AP6 partial fix)",
+    "Added rationale for 80k token and 30-day thresholds (AP5 fix)",
+    "Migrated PowerShell references to python3 (from v2.0 update)"
+  ]
+}
