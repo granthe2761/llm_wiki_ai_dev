@@ -4,6 +4,7 @@ kind: concept
 summary: "以 Git Push 为发布触发器的 CI/CD 模型，Push 即构建、分支即 Preview、合并即生产，替代独立 Jenkins 流水线。"
 source_files:
   - "raw/Paas(Verce)网站上线链路.md"
+  - "raw/Web渲染架构.md"
 updated: 2026-07-05
 ---
 
@@ -36,9 +37,13 @@ updated: 2026-07-05
 - 构建逻辑仍受平台限制（框架 preset、构建时长、monorepo 策略）。
 - 数据库 migration、有状态回滚需额外设计，非 Git push 自动覆盖。
 
+- **构建产物**：Push 触发 [[SSG]]/[[ISR]] 静态 HTML 或 [[SSR]] 函数部署（见 [[Web 渲染架构选型指南]]、[[Vercel]]）。
+
 ## 相关页面
 
 - [[Vercel PaaS 网站上线链路]]
+- [[Web 渲染架构选型指南]]
+- [[SSG]]
 - [[Vercel]]
 - [[CI-CD]]
 - [[灰度发布与回滚]]

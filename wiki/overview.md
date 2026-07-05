@@ -1,10 +1,11 @@
 ---
 title: "全局概览"
 kind: synthesis
-summary: "Web 部署运维知识域；跨传统 VPS 与 Vercel PaaS 两源建立生产就绪链路与托管边界对照框架。"
+summary: "Web 部署运维 + 前端渲染架构双域；VPS/PaaS 托管边界与 SSG/SSR/RSC 选型框架。"
 source_files:
   - "raw/传统网站上线链路.md"
   - "raw/Paas(Verce)网站上线链路.md"
+  - "raw/Web渲染架构.md"
 updated: 2026-07-05
 ---
 
@@ -12,11 +13,18 @@ updated: 2026-07-05
 
 ## 知识域
 
-本维基覆盖 **Web 应用部署与基础设施运维** 主题，关注从「能跑起来」到「生产就绪」之间的能力差距、**传统 VPS 自建**与 **PaaS（以 Vercel 为代表）托管**的路径对照，以及技术栈（Java vs JS 全栈）与合规（ICP）分叉。
+本维基覆盖 **Web 应用部署与基础设施运维** 及 **前端渲染架构** 两大主题：
+
+1. **部署运维**：从「能跑」到「生产就绪」的 VPS 七层栈 vs [[Vercel]] 等 [[PaaS]] 托管边界（[[传统 VPS 与 Vercel 部署对照]]）。
+2. **渲染架构**：SSG/SSR/Streaming/ISR/RSC/RCC 六种模式、跨框架 API 对照、Portfolio 选型（[[Web 渲染架构选型指南]]）。
+
+技术栈分叉：**Java 后端 → VPS/Docker**；**Next.js 等 JS 全栈 → PaaS + RSC/SSG**。
 
 ## 当前综合论点
 
-**生产就绪的真实工作量要么是 VPS 上补齐七层运维栈，要么是 PaaS 上接受「四层平台化 + 数据/合规/深度运维外置」的边界**——跨源对照见 [[传统 VPS 与 Vercel 部署对照]]。Java Spring Boot/RuoYi 走 VPS/Docker；Next.js 等现代全栈走 Vercel 更优。
+1. **部署**：生产就绪 = VPS 补齐七层运维栈，或 PaaS 接受「四层平台化 + 数据/合规外置」。
+2. **渲染**：主内容必须服务端出 HTML（RSC/SSG/SSR）；RCC 仅限交互；ISR 缓更新；Streaming 解慢 API。
+3. **联动**：渲染模式决定 SEO 上限与构建/函数成本，部署平台（Vercel vs VPS）决定运维负担。
 
 ## 知识结构
 
@@ -31,26 +39,25 @@ updated: 2026-07-05
 
 ## 来源统计
 
-- 原始资料数：2
-- 来源摘要数：2
-- 概念页数：10
-- 实体页数：6
-- 综合页数：1
-- 对比页数：1
+- 原始资料数：3
+- 来源摘要数：3
+- 概念页数：16
+- 实体页数：10
+- 综合页数：2
+- 对比页数：2
 
 ## 开放问题
 
-- Vercel + 阿里云 DCDN 混合架构的备案合规实操？
-- Upstash/Neon vs 自建 Redis/MySQL 的延迟与 TCO 量化？
-- 单人/小团队生产就绪的最小能力子集（VPS 路径 vs PaaS 路径）？
+- Vercel + 国内 CDN 备案合规实操？
+- 国内搜索引擎对流式 HTML 的支持？
+- 各渲染模式 Core Web Vitals 量化对比？
 
 ## 相关页面
 
 - [维基索引](../index.md)
 - [操作日志](../log.md)
 - [[传统 VPS 与 Vercel 部署对照]]
-- [[传统 VPS 部署完整链路]]
-- [[Vercel PaaS 网站上线链路]]
-- [[传统网站上线链路：从能跑到能稳定跑]]
+- [[Web 渲染架构选型指南]]
+- [[跨框架渲染模式对照]]
 - [[Vercel]]
-- [[PaaS]]
+- [[Next.js]]

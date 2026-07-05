@@ -5,6 +5,7 @@ summary: "跨两份来源逐项对照传统 VPS 七层生产就绪能力与 Verc
 source_files:
   - "raw/传统网站上线链路.md"
   - "raw/Paas(Verce)网站上线链路.md"
+  - "raw/Web渲染架构.md"
 updated: 2026-07-05
 ---
 
@@ -43,7 +44,7 @@ updated: 2026-07-05
 | DB/Redis/OSS | 自建或云产品 | 全第三方 | **两者均需规划数据层** |
 | CI/CD | Jenkins/Actions | Git 内置 | Vercel 对前端团队 friction 更低 |
 | 灰度/回滚 | 蓝绿/滚动 | Preview + Instant Rollback | Vercel 回滚 UX 更简单 |
-| 邮件/SEO | 自建/SMTP | Resend/SendGrid + 框架 SSR | 均依赖第三方或框架 |
+| 邮件/SEO | 自建/SMTP + 手动 SSR/静态 | 框架 [[SSG]]/[[SSR]]/[[React Server Components]] + Resend | SEO 上限由[[Web 渲染架构选型指南]]决定；Vercel 不替代渲染选型 |
 
 ## 技术栈选型（跨源共识）
 
@@ -78,3 +79,5 @@ updated: 2026-07-05
 - [[Nginx]]
 - [[CI-CD]]
 - [[Git 原生部署]]
+- [[Web 渲染架构选型指南]]
+- [[Next.js]]

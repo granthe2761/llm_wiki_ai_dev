@@ -73,3 +73,29 @@
 **索引变化**：Sources +1 | Entities +2 | Concepts +4 | Comparisons +1 | 更新 ×9
 
 **相关文件**：[[传统 VPS 与 Vercel 部署对照]]、[[Vercel]]、[[PaaS]]、[[Git 原生部署]]
+
+## [2026-07-05] ingest | Web 渲染架构
+
+第三份 raw 入库，建立前端渲染架构知识子域。
+
+**新文件**：
+- `wiki/sources/Web渲染架构.md` — 六种渲染模式总览与 Portfolio 选型
+- `wiki/concepts/SSG.md`、`SSR.md`、`Streaming SSR.md`、`ISR.md`
+- `wiki/concepts/React Server Components.md`、`React Client Components.md`
+- `wiki/entities/Next.js.md`、`Astro.md`、`Nuxt.md`、`SvelteKit.md`
+- `wiki/synthesis/Web 渲染架构选型指南.md` — 页型×模式综合
+- `wiki/comparisons/跨框架渲染模式对照.md` — 五框架 API 矩阵
+
+**更新页面**：
+- `wiki/entities/Vercel.md` — 渲染/SEO 构建能力
+- `wiki/concepts/Git 原生部署.md` — 与 SSG/ISR 构建联动
+- `wiki/overview.md`、`index.md`
+
+**关键沉淀**：
+1. SSG/SSR/Streaming 为全行业通用；ISR 术语 Vercel 化但 SWR 思想通用
+2. RSC 主体 + RCC 仅交互 — Portfolio SEO 的核心纪律
+3. 框架迁移概念平移，见跨框架对照表
+
+**索引变化**：Sources +1 | Entities +4 | Concepts +6 | Syntheses +1 | Comparisons +1 | 更新 ×3
+
+**相关文件**：[[Web 渲染架构选型指南]]、[[跨框架渲染模式对照]]、[[Next.js]]、[[SSG]]、[[React Server Components]]

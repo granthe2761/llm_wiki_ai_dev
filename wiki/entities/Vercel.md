@@ -4,6 +4,7 @@ kind: entity
 summary: "Frontend Cloud / Serverless Platform，以 Git 为源、构建为桥、Edge 为终点的 PaaS 托管平台，托管 infra/运行时/网络/发布四层。"
 source_files:
   - "raw/Paas(Verce)网站上线链路.md"
+  - "raw/Web渲染架构.md"
 updated: 2026-07-05
 ---
 
@@ -33,6 +34,7 @@ Git Push → Webhook → Build System（Framework Preset）
 | 回滚 | Instant Rollback 至任意历史部署 |
 | 对象存储 | Vercel Blob（原生）或 S3/R2 |
 | 监控 | Vercel Analytics / Speed Insights（Web Vitals）；深度 APM 需第三方 |
+| 渲染/SEO | 托管 [[Next.js]] [[SSG]]/[[SSR]]/[[ISR]]/[[Streaming SSR]] 构建产物；框架级 SSR/SSG（见 [[Web 渲染架构选型指南]]） |
 
 ## 不托管的能力
 
@@ -58,3 +60,6 @@ Git Push → Webhook → Build System（Framework Preset）
 - [[Upstash]]
 - [[Nginx]]
 - [[ICP备案]]
+- [[Web 渲染架构选型指南]]
+- [[Next.js]]
+- [[ISR]]
