@@ -1,10 +1,64 @@
-# Obsidian
+# ── Obsidian ──────────────────────────────────────────────
 .obsidian/
+.trash/
 
-# OS
+# ── OS ────────────────────────────────────────────────────
 .DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
 Thumbs.db
+ehthumbs.db
+Desktop.ini
 
-# Editor
+# ── Editor / IDE ──────────────────────────────────────────
 *.swp
+*.swo
 *~
+.vscode/
+!.vscode/extensions.json
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# ── Cursor（本地生成物，保留 skills 与规则）──────────────
+.cursor/skills/**/grading-report.md
+.cursor/skills/**/grading.json
+
+# ── Python（维护脚本 scripts/）────────────────────────────
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+.venv/
+venv/
+env/
+.env
+.env.*
+!.env.example
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+*.egg-info/
+dist/
+build/
+
+# ── Node（若后续引入前端工具链）──────────────────────────
+node_modules/
+.npm/
+.yarn/
+pnpm-lock.yaml
+
+# ── 日志与临时文件 ────────────────────────────────────────
+*.log
+*.tmp
+*.temp
+.cache/
+
+# ── 密钥与本地配置（切勿提交）────────────────────────────
+*.pem
+*.key
+credentials.json
+secrets.*
